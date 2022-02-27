@@ -15,12 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Niveau0_Hardcode.cpp">
+    <ClCompile Include="DataDriven_Niveau1_Valeur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TaxData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="TaxCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

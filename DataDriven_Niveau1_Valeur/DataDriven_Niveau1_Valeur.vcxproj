@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b2875d27-c5b7-4d5e-aa4d-e657c43ec6ed}</ProjectGuid>
-    <RootNamespace>DataDrivenNiveau0Hardcode</RootNamespace>
+    <ProjectGuid>{74be4e34-db72-4269-9ded-366dbc549d33}</ProjectGuid>
+    <RootNamespace>DataDrivenNiveau1Valeur</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -59,15 +59,19 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\Reflecto\ReflectoPropertySheet.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\Reflecto\ReflectoPropertySheet.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\Reflecto\ReflectoPropertySheet.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\Reflecto\ReflectoPropertySheet.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -88,6 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Reflecto/ReflectoCommon;$(SolutionDir)Reflecto/ReflectoSerialization;$(SolutionDir)Reflecto/ReflectoReflection;$(SolutionDir)Reflecto/JsonCpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,6 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Reflecto/ReflectoCommon;$(SolutionDir)Reflecto/ReflectoSerialization;$(SolutionDir)Reflecto/ReflectoReflection;$(SolutionDir)Reflecto/JsonCpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,6 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Reflecto/ReflectoCommon;$(SolutionDir)Reflecto/ReflectoSerialization;$(SolutionDir)Reflecto/ReflectoReflection;$(SolutionDir)Reflecto/JsonCpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Reflecto/ReflectoCommon;$(SolutionDir)Reflecto/ReflectoSerialization;$(SolutionDir)Reflecto/ReflectoReflection;$(SolutionDir)Reflecto/JsonCpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,10 +147,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Niveau0_Hardcode.cpp" />
+    <ClCompile Include="DataDriven_Niveau1_Valeur.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataManager.h" />
+    <ClInclude Include="DataSerializer.h" />
     <ClInclude Include="TaxCalculator.h" />
+    <ClInclude Include="TaxData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Reflecto\JsonCpp\JsonCpp.vcxproj">
+      <Project>{bdfe2d9f-5a3d-44b7-88b2-4ff7035af21c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Reflecto\ReflectoCommon\ReflectoCommon.vcxproj">
+      <Project>{3403ac28-d2dc-4a4d-9062-9f5d1f883ef7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Reflecto\ReflectoSerialization\ReflectoSerialization.vcxproj">
+      <Project>{3f966c5e-af4a-4375-9954-234f5bcf304e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
