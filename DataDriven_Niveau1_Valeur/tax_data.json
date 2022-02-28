@@ -1,16 +1,4 @@
 {
-    "type": "TaxData",
-    "value":
-    {
-        "TPS":
-        {
-            "type": "float",
-            "value": 0.05
-        },
-        "TVQ":
-        {
-            "type": "float",
-            "value": 0.09975
-        }
-    }
+  "TPS": 0.05,
+  "TVQ": 0.09975
 }

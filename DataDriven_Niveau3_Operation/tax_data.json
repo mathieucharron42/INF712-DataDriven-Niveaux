@@ -1,56 +1,16 @@
 {
-  "type": "GlobalTaxData",
-  "value": {
-    "Taxes": {
-      "type": "vector<TaxData>",
-      "value": [
-        {
-          "type": "TaxData",
-          "value": {
-            "Id": {
-              "type": "string",
-              "value": "TPS"
-            },
-            "Value": {
-              "type": "float",
-              "value": 0.05
-            },
-            "Value": {
-              "type": "float",
-              "value": 0.05
-            },
-            "ApplicationOrder": {
-              "type": "int",
-              "value": 0
-            },
-            "ApplicationMode": {
-              "type": "TaxApplicationMode",
-              "value": "Multiplicative"
-            }
-          }
-        },
-        {
-          "type": "TaxData",
-          "value": {
-            "Id": {
-              "type": "string",
-              "value": "TVQ"
-            },
-            "Value": {
-              "type": "float",
-              "value": 0.09975
-            },
-            "ApplicationOrder": {
-              "type": "int",
-              "value": 1
-            },
-            "ApplicationMode": {
-              "type": "TaxApplicationMode",
-              "value": "Multiplicative"
-            }
-          }
-        }
-      ]
+  "Taxes": [
+    {
+      "Id": "TPS",
+      "Value": 0.05,
+      "ApplicationOrder": 0,
+      "ApplicationMode": "Multiplicative"
+    },
+    {
+      "Id": "TVQ",
+      "Value": 0.09975,
+      "ApplicationOrder": 1,
+      "ApplicationMode": "Multiplicative"
     }
-  }
+  ]
 }

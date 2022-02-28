@@ -1,40 +1,13 @@
 {
-  "type": "GlobalTaxData",
-  "value": {
-    "FixedAdditivesTaxes": {
-      "type": "vector<TaxData>",
-      "value": []
+  "FixedAdditivesTaxes": [],
+  "MultiplicativeTaxes": [
+    {
+      "Id": "TPS",
+      "Value": 0.05
     },
-    "MultiplicativeTaxes": {
-      "type": "vector<TaxData>",
-      "value": [
-        {
-          "type": "TaxData",
-          "value": {
-            "Id": {
-              "type": "string",
-              "value": "TPS"
-            },
-            "Value": {
-              "type": "float",
-              "value": 0.05
-            }
-          }
-        },
-        {
-          "type": "TaxData",
-          "value": {
-            "Id": {
-              "type": "string",
-              "value": "TVQ"
-            },
-            "Value": {
-              "type": "float",
-              "value": 0.09975
-            }
-          }
-        }
-      ]
+    {
+      "Id": "TVQ",
+      "value": 0.09975
     }
-  }
+  ]
 }

@@ -56,6 +56,7 @@ namespace
 			.LearnType<std::string, StringSerializationStrategy>()
 			.LearnType<int, Int32SerializationStrategy>()
 			.LearnType<TaxApplicationMode, EnumSerializationStrategy<TaxApplicationMode>>(taxApplicationModeDescriptor)
+			.SetFormat(SerializationFormat::Short)
 		.Build();
 
 		return serializer;

@@ -34,6 +34,7 @@ namespace
 		Serializer serializer = SerializerFactory(typeLibrary)
 			.LearnType<TaxData, ObjectSerializationStrategy<TaxData>>(taxDataDescriptor)
 			.LearnType<float, FloatSerializationStrategy>()
+			.SetFormat(SerializationFormat::Short)
 		.Build();
 
 		return serializer;

@@ -46,6 +46,7 @@ namespace
 			.LearnType<std::vector<TaxData>, VectorSerializationStrategy<std::vector<TaxData>>>()
 			.LearnType<float, FloatSerializationStrategy>()
 			.LearnType<std::string, StringSerializationStrategy>()
+			.SetFormat(SerializationFormat::Short)
 		.Build();
 
 		return serializer;
