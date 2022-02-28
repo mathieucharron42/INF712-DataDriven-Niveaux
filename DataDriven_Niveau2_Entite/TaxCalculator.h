@@ -13,11 +13,11 @@ public:
 	float ComputeFinalPrice(float price)
 	{
 		float finalPrice = price;
-		for(TaxData multiplicativeTaxData : _globalTaxData.MultiplicativeTaxes)
+		for(const TaxData& multiplicativeTaxData : _globalTaxData.MultiplicativeTaxes)
 		{
 			finalPrice *= (1 + multiplicativeTaxData.Value);
 		}
-		for (TaxData fixedAdditiveTaxData : _globalTaxData.FixedAdditivesTaxes)
+		for (const TaxData& fixedAdditiveTaxData : _globalTaxData.FixedAdditivesTaxes)
 		{
 			finalPrice += fixedAdditiveTaxData.Value;
 		}
