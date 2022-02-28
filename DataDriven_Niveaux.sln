@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReflectoCommon", "Reflecto\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsonCpp", "Reflecto\JsonCpp\JsonCpp.vcxproj", "{BDFE2D9F-5A3D-44B7-88B2-4FF7035AF21C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataDriven_Niveau2_Entite", "DataDriven_Niveau2_Entite\DataDriven_Niveau2_Entite.vcxproj", "{21656DDB-6F27-474B-A05B-6E8C180D88B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{BDFE2D9F-5A3D-44B7-88B2-4FF7035AF21C}.Release|x64.Build.0 = Release|x64
 		{BDFE2D9F-5A3D-44B7-88B2-4FF7035AF21C}.Release|x86.ActiveCfg = Release|Win32
 		{BDFE2D9F-5A3D-44B7-88B2-4FF7035AF21C}.Release|x86.Build.0 = Release|Win32
+		{21656DDB-6F27-474B-A05B-6E8C180D88B1}.Debug|x64.ActiveCfg = Debug|x64
+		{21656DDB-6F27-474B-A05B-6E8C180D88B1}.Debug|x64.Build.0 = Debug|x64
+		{21656DDB-6F27-474B-A05B-6E8C180D88B1}.Debug|x86.ActiveCfg = Debug|Win32
+		{21656DDB-6F27-474B-A05B-6E8C180D88B1}.Debug|x86.Build.0 = Debug|Win32
+		{21656DDB-6F27-474B-A05B-6E8C180D88B1}.Release|x64.ActiveCfg = Release|x64
+		{21656DDB-6F27-474B-A05B-6E8C180D88B1}.Release|x64.Build.0 = Release|x64
+		{21656DDB-6F27-474B-A05B-6E8C180D88B1}.Release|x86.ActiveCfg = Release|Win32
+		{21656DDB-6F27-474B-A05B-6E8C180D88B1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
