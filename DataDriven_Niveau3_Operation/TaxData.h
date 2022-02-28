@@ -2,10 +2,10 @@
 
 #include <string>
 
-namespace TaxApplicationMode
+enum class TaxApplicationMode
 {
-	inline static const std::string Multiplicative = "Multiplicative";
-	inline static const std::string FixedAdditive = "FixedAdditive";
+	Multiplicative,
+	FixedAdditive
 };
 
 struct TaxData
@@ -13,5 +13,5 @@ struct TaxData
 	std::string Id;
 	float Value;
 	int ApplicationOrder;
-	std::string ApplicationMode;
+	TaxApplicationMode ApplicationMode;
 };

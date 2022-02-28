@@ -7,13 +7,13 @@ class TaxCalculator
 {
 public:
 	using TaxApplicationFunc = std::function<float(const TaxData&, float)>;
-	using TaxApplicationMapping = std::map<std::string, TaxApplicationFunc>;
+	using TaxApplicationMapping = std::map<TaxApplicationMode, TaxApplicationFunc>;
 
 	TaxCalculator(const DataManager& dataManager)
 		: _globalTaxData(dataManager.GetGlobalTaxData())
 		, _taxApplicationMapping({
 			{ TaxApplicationMode::Multiplicative, &ApplyMultiplicative },
-			{ TaxApplicationMode::Multiplicative, &ApplyFixedAdditive }})
+			{ TaxApplicationMode::FixedAdditive, &ApplyFixedAdditive }})
 	{ }
 
 	float ComputeFinalPrice(float price)

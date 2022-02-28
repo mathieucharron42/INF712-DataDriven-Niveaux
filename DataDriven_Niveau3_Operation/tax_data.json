@@ -24,7 +24,7 @@
               "value": 0
             },
             "ApplicationMode": {
-              "type": "string",
+              "type": "TaxApplicationMode",
               "value": "Multiplicative"
             }
           }
@@ -45,7 +45,7 @@
               "value": 1
             },
             "ApplicationMode": {
-              "type": "string",
+              "type": "TaxApplicationMode",
               "value": "Multiplicative"
             }
           }
