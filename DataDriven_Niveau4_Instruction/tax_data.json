@@ -1,0 +1,24 @@
+{
+  "ComputationFunction": [
+    {
+      "Instruction": "Push",
+      "Value": 1.05
+    },
+    {
+      "Instruction": "Multiply",
+      "Value": 0.0
+    },
+    {
+      "Instruction": "Push",
+      "Value": 1.09975
+    },
+    {
+      "Instruction": "Multiply",
+      "Value": 0.0
+    },
+    {
+      "Instruction": "Pop",
+      "Value": 0.0
+    }
+  ]
+}
