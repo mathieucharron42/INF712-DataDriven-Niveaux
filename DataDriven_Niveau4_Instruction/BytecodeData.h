@@ -15,5 +15,5 @@ enum class BytecodeInstruction
 struct BytecodeData
 {
 	BytecodeInstruction Instruction;
-	float Value;
+	std::optional<float> Value;
 };

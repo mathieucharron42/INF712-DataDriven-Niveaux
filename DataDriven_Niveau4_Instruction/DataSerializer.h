@@ -30,6 +30,7 @@ namespace
 			.Add<BytecodeData>("BytecodeData")
 			.Add<std::vector<BytecodeData>>("std::vector<BytecodeData>")
 			.Add<BytecodeInstruction>("Instruction")
+			.Add<std::optional<float>>("optional<float>")
 		.Build();
 
 		TypeDescriptor globalTaxDataDescriptor = TypeDescriptorFactory<GlobalTaxData>(typeLibrary)
@@ -59,6 +60,7 @@ namespace
 			.LearnType<std::vector<BytecodeData>, VectorSerializationStrategy<std::vector<BytecodeData>>>()
 			.LearnType<BytecodeData, ObjectSerializationStrategy<BytecodeData>>(bytecodeDataDescriptor)
 			.LearnType<BytecodeInstruction, EnumSerializationStrategy<BytecodeInstruction>>(bytecodeInstructionDescriptor)
+			.LearnType<std::optional<float>, OptionalSerializationStrategy<std::optional<float>>>()
 		.Build();
 
 		return serializer;

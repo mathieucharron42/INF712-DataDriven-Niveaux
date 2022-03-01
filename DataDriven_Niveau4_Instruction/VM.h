@@ -67,7 +67,8 @@ public:
 		}
 		else if (bytecode.Instruction == BytecodeInstruction::Push)
 		{
-			Push(bytecode.Value);
+			ensure(bytecode.Value.has_value());
+			Push(bytecode.Value.value());
 		}
 		else if (bytecode.Instruction == BytecodeInstruction::Pop)
 		{

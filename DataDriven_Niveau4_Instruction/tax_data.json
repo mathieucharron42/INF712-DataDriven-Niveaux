@@ -5,20 +5,17 @@
       "Value": 1.05
     },
     {
-      "Instruction": "Multiply",
-      "Value": 0.0
+      "Instruction": "Multiply"
     },
     {
       "Instruction": "Push",
       "Value": 1.09975
     },
     {
-      "Instruction": "Multiply",
-      "Value": 0.0
+      "Instruction": "Multiply"
     },
     {
-      "Instruction": "Pop",
-      "Value": 0.0
+      "Instruction": "Pop"
     }
   ]
 }
