@@ -1,6 +1,6 @@
 #pragma once
 
-struct TaxData
+struct GlobalTaxData
 {
 	float TPS = 0;
 	float TVQ = 0;

@@ -10,17 +10,18 @@ public:
 	using TaxApplicationMapping = std::map<TaxApplicationMode, TaxApplicationFunc>;
 
 	TaxCalculator(const DataManager& dataManager)
-		: _globalTaxData(dataManager.GetGlobalTaxData())
+		: _taxData(dataManager.GetTaxData())
 		, _taxApplicationMapping({
 			{ TaxApplicationMode::Multiplicative, &ApplyMultiplicative },
-			{ TaxApplicationMode::FixedAdditive, &ApplyFixedAdditive }})
+			{ TaxApplicationMode::FixedAdditive, &ApplyFixedAdditive }
+		})
 	{ }
 
 	float ComputeFinalPrice(float price)
 	{
 		float finalPrice = price;
 
-		std::vector<TaxData> sortedTaxes = _globalTaxData.Taxes;
+		std::vector<TaxData> sortedTaxes = _taxData.Taxes;
 		std::sort(sortedTaxes.begin(), sortedTaxes.end(), [](const TaxData& t1, const TaxData& t2)
 		{
 			return t1.ApplicationOrder < t2.ApplicationOrder;
@@ -50,6 +51,6 @@ private:
 		return price + taxData.Value;
 	}
 
-	const GlobalTaxData& _globalTaxData;
+	const GlobalTaxData& _taxData;
 	const TaxApplicationMapping _taxApplicationMapping;
 };

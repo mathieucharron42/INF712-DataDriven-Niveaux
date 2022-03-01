@@ -7,23 +7,17 @@ class TaxCalculator
 {
 public:
 	TaxCalculator(const DataManager& dataManager)
-		: _globalTaxData(dataManager.GetGlobalTaxData())
+		: _taxData(dataManager.GetTaxData())
 	{ }
 
 	float ComputeFinalPrice(float price)
 	{
 		float finalPrice = price;
-		for(const TaxData& multiplicativeTaxData : _globalTaxData.MultiplicativeTaxes)
-		{
-			finalPrice *= (1 + multiplicativeTaxData.Value);
-		}
-		for (const TaxData& fixedAdditiveTaxData : _globalTaxData.FixedAdditivesTaxes)
-		{
-			finalPrice += fixedAdditiveTaxData.Value;
-		}
+		finalPrice += _taxData.TPS.Compute(finalPrice);
+		finalPrice += _taxData.TVQ.Compute(finalPrice);
 		return finalPrice;
 	}
 
 private:
-	const GlobalTaxData& _globalTaxData;
+	const GlobalTaxData& _taxData;
 };

@@ -12,9 +12,9 @@ int main()
 	TaxCalculator taxCalculator(dataManager);
 
 	float price;
-	std::cout << "Entrer le prix du produit: $";
+	std::cout << "Entrer le prix du produit: ";
 	std::cin >> price;
 
 	float finalPrice = taxCalculator.ComputeFinalPrice(price);
-	std::cout << "Le prix final est: $" << finalPrice << std::endl;
+	std::cout << "Le prix final est: " << finalPrice << std::endl;
 }

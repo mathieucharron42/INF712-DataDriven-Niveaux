@@ -35,11 +35,11 @@ public:
 		return success;
 	}
 
-	const TaxData& GetTaxData() const
+	const GlobalTaxData& GetTaxData() const
 	{
 		return _tax;
 	}
 
 private:
-	TaxData _tax;
+	GlobalTaxData _tax;
 };

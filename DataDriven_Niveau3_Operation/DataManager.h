@@ -1,7 +1,6 @@
 #pragma once
 
 #include "DataSerializer.h"
-#include "GlobalTaxData.h"
 
 #include "Serialization/Reader/JsonSerializationReader.h"
 #include "Serialization/Serializer.h"
@@ -28,18 +27,18 @@ public:
 			JsonSerializationReader reader;
 			if (reader.Import(ifs))
 			{
-				success = ensure(serializer.Deserialize(_globalTax, reader));
+				success = ensure(serializer.Deserialize(_taxData, reader));
 			}
 		}
 
 		return success;
 	}
 
-	const GlobalTaxData& GetGlobalTaxData() const
+	const GlobalTaxData& GetTaxData() const
 	{
-		return _globalTax;
+		return _taxData;
 	}
 
 private:
-	GlobalTaxData _globalTax;
+	GlobalTaxData _taxData;
 };

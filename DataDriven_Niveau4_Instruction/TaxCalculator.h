@@ -9,14 +9,14 @@ class TaxCalculator
 {
 public:
 	TaxCalculator(const DataManager& dataManager)
-		: _globalTaxData(dataManager.GetGlobalTaxData())
+		: _taxData(dataManager.GetTaxData())
 	{ }
 
 	float ComputeFinalPrice(float price)
 	{
 		float finalPrice = 0;
 
-		std::optional<float> executionResult = VM().Execute(_globalTaxData.ComputationFunction, price);
+		std::optional<float> executionResult = VM().Execute(_taxData.ComputationFunction, price);
 		if (ensure(executionResult.has_value()))
 		{
 			finalPrice = executionResult.value();
@@ -26,6 +26,6 @@ public:
 	}
 
 private:
-	const GlobalTaxData& _globalTaxData;
+	const GlobalTaxData& _taxData;
 	
 };

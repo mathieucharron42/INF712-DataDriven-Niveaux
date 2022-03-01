@@ -8,8 +8,8 @@ public:
 	float ComputeFinalPrice(float price)
 	{
 		float finalPrice = price;
-		finalPrice *= (1 + TPS);
-		finalPrice *= (1 + TVQ);
+		finalPrice += (finalPrice * TPS);
+		finalPrice += (finalPrice * TVQ);
 		return finalPrice;
 	}
 

@@ -29,6 +29,7 @@ public:
 		{
 			output = Execute(bytecode);
 		}
+
 		return output;
 	}
 
@@ -74,6 +75,14 @@ public:
 		{
 			output = Pop();
 		}
+		else if (bytecode.Instruction == BytecodeInstruction::Peek)
+		{
+			output = Peek();
+		}
+		else if (bytecode.Instruction == BytecodeInstruction::Duplicate)
+		{
+			Push(Peek());
+		}
 		else
 		{
 			assert(false && "Unsupported instruction");
@@ -83,8 +92,14 @@ public:
 
 	float Pop()
 	{
-		float value = _stack.top();
+		float value = Peek();
 		_stack.pop();
+		return value;
+	}
+
+	float Peek()
+	{
+		float value = _stack.top();
 		return value;
 	}
 

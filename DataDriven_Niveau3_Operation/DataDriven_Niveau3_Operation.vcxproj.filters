@@ -29,9 +29,6 @@
     <ClInclude Include="TaxData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GlobalTaxData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TaxCalculator.h">
       <Filter>Header Files</Filter>
     </ClInclude>

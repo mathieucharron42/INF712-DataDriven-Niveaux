@@ -21,9 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TaxCalculator.h" />
-    <ClInclude Include="GlobalTaxData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TaxData.h">
       <Filter>Header Files</Filter>
     </ClInclude>

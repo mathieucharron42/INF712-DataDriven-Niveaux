@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include <vector>
+
 enum class TaxApplicationMode
 {
 	Multiplicative,
@@ -14,4 +16,9 @@ struct TaxData
 	float Value;
 	int ApplicationOrder;
 	TaxApplicationMode ApplicationMode;
+};
+
+struct GlobalTaxData
+{
+	std::vector<TaxData> Taxes;
 };

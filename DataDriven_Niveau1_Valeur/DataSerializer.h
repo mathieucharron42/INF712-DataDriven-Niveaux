@@ -23,16 +23,16 @@ namespace
 	{
 		TypeLibrary typeLibrary = TypeLibraryFactory()
 			.Add<float>("float")
-			.Add<TaxData>("TaxData")
+			.Add<GlobalTaxData>("GlobalTaxData")
 		.Build();
 
-		TypeDescriptor taxDataDescriptor = TypeDescriptorFactory<TaxData>(typeLibrary)
-			.RegisterMember(&TaxData::TPS, "TPS")
-			.RegisterMember(&TaxData::TVQ, "TVQ")
+		TypeDescriptor globalTaxDataDescriptor = TypeDescriptorFactory<GlobalTaxData>(typeLibrary)
+			.RegisterMember(&GlobalTaxData::TPS, "TPS")
+			.RegisterMember(&GlobalTaxData::TVQ, "TVQ")
 		.Build();
 
 		Serializer serializer = SerializerFactory(typeLibrary)
-			.LearnType<TaxData, ObjectSerializationStrategy<TaxData>>(taxDataDescriptor)
+			.LearnType<GlobalTaxData, ObjectSerializationStrategy<GlobalTaxData>>(globalTaxDataDescriptor)
 			.LearnType<float, FloatSerializationStrategy>()
 			.SetFormat(SerializationFormat::Short)
 		.Build();

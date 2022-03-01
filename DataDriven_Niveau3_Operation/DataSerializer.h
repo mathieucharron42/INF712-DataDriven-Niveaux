@@ -1,6 +1,5 @@
 #pragma once
 
-#include "GlobalTaxData.h"
 #include "TaxData.h"
 
 #include "Common/Ensure.h"

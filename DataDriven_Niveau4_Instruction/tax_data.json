@@ -1,32 +1,30 @@
 {
   "ComputationFunction": [
     {
+      "Instruction": "Duplicate"
+    },
+    {
       "Instruction": "Push",
       "Value": 0.05
     },
     {
-      "Instruction": "Push",
-      "Value": 1.0
+      "Instruction": "Multiply"
     },
     {
       "Instruction": "Add"
     },
     {
-      "Instruction": "Multiply"
+      "Instruction": "Duplicate"
     },
     {
       "Instruction": "Push",
       "Value": 0.09975
     },
     {
-      "Instruction": "Push",
-      "Value": 1.0
+      "Instruction": "Multiply"
     },
     {
       "Instruction": "Add"
-    },
-    {
-      "Instruction": "Multiply"
     },
     {
       "Instruction": "Pop"

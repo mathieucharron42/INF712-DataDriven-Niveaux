@@ -1,6 +1,5 @@
 #pragma once
 
-#include "GlobalTaxData.h"
 #include "TaxData.h"
 
 #include "Common/Ensure.h"
@@ -31,8 +30,8 @@ namespace
 		.Build();
 
 		TypeDescriptor globalTaxDataDescriptor = TypeDescriptorFactory<GlobalTaxData>(typeLibrary)
-			.RegisterMember(&GlobalTaxData::MultiplicativeTaxes, "MultiplicativeTaxes")
-			.RegisterMember(&GlobalTaxData::FixedAdditivesTaxes, "FixedAdditivesTaxes")
+			.RegisterMember(&GlobalTaxData::TPS, "TPS")
+			.RegisterMember(&GlobalTaxData::TVQ, "TVQ")
 		.Build();
 
 		TypeDescriptor taxDataDescriptor = TypeDescriptorFactory<TaxData>(typeLibrary)

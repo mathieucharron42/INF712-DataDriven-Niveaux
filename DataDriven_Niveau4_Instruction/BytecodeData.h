@@ -6,10 +6,12 @@ enum class BytecodeInstruction
 {
 	Push,
 	Pop,
+	Peek,
+	Duplicate,
 	Add,
 	Substract,
 	Multiply,
-	Divide
+	Divide,
 };
 
 struct BytecodeData

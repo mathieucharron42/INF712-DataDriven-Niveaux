@@ -26,7 +26,7 @@
     <ClInclude Include="DataSerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GlobalTaxData.h">
+    <ClInclude Include="TaxData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TaxCalculator.h">

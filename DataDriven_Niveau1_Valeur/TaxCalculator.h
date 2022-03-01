@@ -13,11 +13,11 @@ public:
 	float ComputeFinalPrice(float price)
 	{
 		float finalPrice = price;
-		finalPrice *= (1 + _taxData.TPS);
-		finalPrice *= (1 + _taxData.TVQ);
+		finalPrice += (finalPrice * _taxData.TPS);
+		finalPrice += (finalPrice * _taxData.TVQ);
 		return finalPrice;
 	}
 
 private:
-	const TaxData& _taxData;
+	const GlobalTaxData& _taxData;
 };

@@ -149,7 +149,7 @@
     <ClInclude Include="BytecodeData.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DataSerializer.h" />
-    <ClInclude Include="GlobalTaxData.h" />
+    <ClInclude Include="TaxData.h" />
     <ClInclude Include="TaxCalculator.h" />
     <ClInclude Include="VM.h" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "BytecodeData.h"
-#include "GlobalTaxData.h"
+#include "TaxData.h"
 
 #include "Common/Ensure.h"
 #include "Type/TypeDescriptor.h"
@@ -43,6 +43,8 @@ namespace
 			.RegisterValue(BytecodeInstruction::Multiply, "Multiply")
 			.RegisterValue(BytecodeInstruction::Pop, "Pop")
 			.RegisterValue(BytecodeInstruction::Push, "Push")
+			.RegisterValue(BytecodeInstruction::Peek, "Peek")
+			.RegisterValue(BytecodeInstruction::Duplicate, "Duplicate")
 			.RegisterValue(BytecodeInstruction::Substract, "¸Substract")
 		.Build();
 

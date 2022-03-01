@@ -1,13 +1,10 @@
 {
-  "FixedAdditivesTaxes": [],
-  "MultiplicativeTaxes": [
-    {
-      "Id": "TPS",
-      "Value": 0.05
-    },
-    {
-      "Id": "TVQ",
-      "value": 0.09975
-    }
-  ]
+  "TPS": {
+    "Id": "TPS",
+    "Value": 0.05
+  },
+  "TVQ": {
+    "Id": "TVQ",
+    "Value": 0.09975
+  }
 }
