@@ -6,5 +6,9 @@
   "TVQ": {
     "Id": "TVQ",
     "Value": 0.09975
+  },
+  "EHF": {
+    "Id": "EHF",
+    "Value": 1.25
   }
 }

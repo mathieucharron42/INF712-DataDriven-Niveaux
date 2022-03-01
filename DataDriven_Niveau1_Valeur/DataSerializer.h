@@ -29,6 +29,7 @@ namespace
 		TypeDescriptor globalTaxDataDescriptor = TypeDescriptorFactory<GlobalTaxData>(typeLibrary)
 			.RegisterMember(&GlobalTaxData::TPS, "TPS")
 			.RegisterMember(&GlobalTaxData::TVQ, "TVQ")
+			.RegisterMember(&GlobalTaxData::EHF, "EHF")
 		.Build();
 
 		Serializer serializer = SerializerFactory(typeLibrary)

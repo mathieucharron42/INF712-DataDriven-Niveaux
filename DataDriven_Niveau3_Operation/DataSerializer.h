@@ -43,7 +43,7 @@ namespace
 		.Build();
 
 		TypeDescriptor taxApplicationModeDescriptor = TypeDescriptorFactory<TaxApplicationMode>(typeLibrary)
-			.RegisterValue(TaxApplicationMode::FixedAdditive, "FixedAdditive")
+			.RegisterValue(TaxApplicationMode::Additive, "Additive")
 			.RegisterValue(TaxApplicationMode::Multiplicative, "Multiplicative")
 		.Build();
 

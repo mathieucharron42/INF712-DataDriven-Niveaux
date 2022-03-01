@@ -12,8 +12,8 @@ public:
 	TaxCalculator(const DataManager& dataManager)
 		: _taxData(dataManager.GetTaxData())
 		, _taxApplicationMapping({
-			{ TaxApplicationMode::Multiplicative, &ApplyMultiplicative },
-			{ TaxApplicationMode::FixedAdditive, &ApplyFixedAdditive }
+			{ TaxApplicationMode::Multiplicative, &ComputeMultiplicative },
+			{ TaxApplicationMode::Additive, &ComputeAdditive }
 		})
 	{ }
 
@@ -33,7 +33,7 @@ public:
 			const TaxApplicationFunc* applicationModeFunc = found != _taxApplicationMapping.end() ? &found->second : nullptr;
 			if (ensure(applicationModeFunc))
 			{
-				finalPrice = (*applicationModeFunc)(taxData, finalPrice);
+				finalPrice += (*applicationModeFunc)(taxData, finalPrice);
 			}
 			
 		}
@@ -41,14 +41,14 @@ public:
 	}
 
 private:
-	static float ApplyMultiplicative(TaxData taxData, float price)
+	static float ComputeMultiplicative(TaxData taxData, float price)
 	{
-		return price * (1 + taxData.Value);
+		return price * taxData.Value;
 	}
 
-	static float ApplyFixedAdditive(TaxData taxData, float price)
+	static float ComputeAdditive(TaxData taxData, float price)
 	{
-		return price + taxData.Value;
+		return taxData.Value;
 	}
 
 	const GlobalTaxData& _taxData;

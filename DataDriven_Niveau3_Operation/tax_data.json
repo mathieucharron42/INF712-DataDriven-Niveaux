@@ -9,8 +9,14 @@
     {
       "Id": "TVQ",
       "Value": 0.09975,
-      "ApplicationOrder": 1,
+      "ApplicationOrder": 0,
       "ApplicationMode": "Multiplicative"
+    },
+    {
+      "Id": "EHF",
+      "Value": 1.25,
+      "ApplicationOrder": 2,
+      "ApplicationMode": "Additive"
     }
   ]
 }

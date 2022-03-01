@@ -7,15 +7,21 @@ struct TaxData
 {
 	std::string Id;
 	float Value;
+};
 
-	float Compute(float amount) const
-	{
-		return amount * Value;
-	}
+struct MultiplicativeTaxData : public TaxData
+{
+
+};
+
+struct AdditiveTaxData : public TaxData
+{
+
 };
 
 struct GlobalTaxData
 {
-	TaxData TPS;
-	TaxData TVQ;
+	MultiplicativeTaxData TPS;
+	MultiplicativeTaxData TVQ;
+	AdditiveTaxData EHF;
 };

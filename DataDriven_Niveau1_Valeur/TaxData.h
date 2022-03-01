@@ -2,6 +2,7 @@
 
 struct GlobalTaxData
 {
-	float TPS = 0;
-	float TVQ = 0;
+	float TPS;
+	float TVQ;
+	float EHF;
 };

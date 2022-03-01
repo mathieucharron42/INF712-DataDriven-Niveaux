@@ -7,7 +7,7 @@
 enum class TaxApplicationMode
 {
 	Multiplicative,
-	FixedAdditive
+	Additive
 };
 
 struct TaxData

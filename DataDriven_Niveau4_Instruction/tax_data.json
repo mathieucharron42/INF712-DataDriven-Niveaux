@@ -27,6 +27,13 @@
       "Instruction": "Add"
     },
     {
+      "Instruction": "Push",
+      "Value": 1.25
+    },
+    {
+      "Instruction": "Add"
+    },
+    {
       "Instruction": "Pop"
     }
   ]
