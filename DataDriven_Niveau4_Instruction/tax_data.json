@@ -2,14 +2,28 @@
   "ComputationFunction": [
     {
       "Instruction": "Push",
-      "Value": 1.05
+      "Value": 0.05
+    },
+    {
+      "Instruction": "Push",
+      "Value": 1.0
+    },
+    {
+      "Instruction": "Add"
     },
     {
       "Instruction": "Multiply"
     },
     {
       "Instruction": "Push",
-      "Value": 1.09975
+      "Value": 0.09975
+    },
+    {
+      "Instruction": "Push",
+      "Value": 1.0
+    },
+    {
+      "Instruction": "Add"
     },
     {
       "Instruction": "Multiply"
