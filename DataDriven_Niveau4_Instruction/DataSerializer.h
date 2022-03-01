@@ -45,7 +45,10 @@ namespace
 			.RegisterValue(BytecodeInstruction::Push, "Push")
 			.RegisterValue(BytecodeInstruction::Peek, "Peek")
 			.RegisterValue(BytecodeInstruction::Duplicate, "Duplicate")
-			.RegisterValue(BytecodeInstruction::Substract, "¸Substract")
+			.RegisterValue(BytecodeInstruction::Substract, "Substract")
+			.RegisterValue(BytecodeInstruction::Equals, "Equals")
+			.RegisterValue(BytecodeInstruction::JumpIf, "JumpIf")
+			.RegisterValue(BytecodeInstruction::Swap, "Swap")
 		.Build();
 
 		TypeDescriptor bytecodeDataDescriptor = TypeDescriptorFactory<BytecodeData>(typeLibrary)

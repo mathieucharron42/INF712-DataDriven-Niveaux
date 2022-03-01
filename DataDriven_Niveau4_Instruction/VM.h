@@ -10,61 +10,71 @@
 class VM
 {
 public:
+	using value_t = float;
+
 	VM()
 		: _stack()
 	{ }
 
-	std::optional<float> Execute(std::vector<BytecodeData> code, float parameter)
+	std::optional<value_t> Execute(const std::vector<BytecodeData>& bytecodes, value_t parameter)
 	{
-		std::vector<float> params = {parameter};
-		return Execute(code, params);
+		std::vector<value_t> params = {parameter};
+		return Execute(bytecodes, params);
 	}
 
-	std::optional<float> Execute(std::vector<BytecodeData> code, std::vector<float> parameters)
+	std::optional<value_t> Execute(const std::vector<BytecodeData>& bytecodes, std::vector<value_t> parameters)
 	{
-		std::optional<float> output;
+		std::optional<value_t> output;
 
 		InitializeStack(parameters);
-		for(const BytecodeData& bytecode : code)
+
+		for (_instructionPtr = bytecodes.begin(); _instructionPtr != bytecodes.end(); ++_instructionPtr)
 		{
+			const BytecodeData& bytecode = *_instructionPtr;
 			output = Execute(bytecode);
 		}
-
+		
 		return output;
 	}
 
-	void InitializeStack(std::vector<float> parameters)
+private:
+	void InitializeStack(std::vector<value_t> parameters)
 	{
-		while (!_stack.empty())
+		// Initialize stack in reverse order for convenience
+		for (std::vector<value_t>::reverse_iterator it = parameters.rbegin(); it != parameters.rend(); ++it)
 		{
-			_stack.pop();
-		}
-		
-		for(float param : parameters)
-		{
+			const value_t& param = *it;
 			Push(param);
 		}
 	}
 
-	std::optional<float> Execute(const BytecodeData& bytecode)
+	std::optional<value_t> Execute(const BytecodeData& bytecode)
 	{
-		std::optional<float> output;
+		std::optional<value_t> output;
 
 		if (bytecode.Instruction == BytecodeInstruction::Add)
 		{
-			Push(Pop() + Pop());
+			value_t v1 = Pop();
+			value_t v2 = Pop();
+			Push(v2 + v1);
 		}
 		else if (bytecode.Instruction == BytecodeInstruction::Substract)
 		{
-			Push(Pop() - Pop());
+			value_t v1 = Pop();
+			value_t v2 = Pop();
+			Push(v2 - v1);
 		}
 		else if (bytecode.Instruction == BytecodeInstruction::Multiply)
 		{
-			Push(Pop() * Pop());
+			value_t v1 = Pop();
+			value_t v2 = Pop();
+			Push(v2 * v1);
 		}
 		else if (bytecode.Instruction == BytecodeInstruction::Divide)
 		{
-			Push(Pop() / Pop());
+			value_t v1 = Pop();
+			value_t v2 = Pop();
+			Push(v2 / v1);
 		}
 		else if (bytecode.Instruction == BytecodeInstruction::Push)
 		{
@@ -83,6 +93,40 @@ public:
 		{
 			Push(Peek());
 		}
+		else if (bytecode.Instruction == BytecodeInstruction::Equals)
+		{
+			value_t value1 = Pop();
+			value_t value2 = Pop();
+			Push(value2 == value1);
+		}
+		else if (bytecode.Instruction == BytecodeInstruction::Not)
+		{
+			bool value = static_cast<bool>(Pop());
+			Push(!value);
+		}
+		else if (bytecode.Instruction == BytecodeInstruction::JumpIf)
+		{
+			ensure(bytecode.Value.has_value());
+			bool eval = static_cast<bool>(Pop());
+			if (eval)
+			{
+				int nbInstructions = static_cast<int>(bytecode.Value.value());
+				Jump(nbInstructions);
+			}
+		}
+		else if (bytecode.Instruction == BytecodeInstruction::Jump)
+		{
+			ensure(bytecode.Value.has_value());
+			int nbInstructions = static_cast<int>(bytecode.Value.value());
+			Jump(nbInstructions);
+		}
+		else if (bytecode.Instruction == BytecodeInstruction::Swap)
+		{
+			value_t value1 = Pop();
+			value_t value2 = Pop();
+			Push(value1);
+			Push(value2);
+		}
 		else
 		{
 			assert(false && "Unsupported instruction");
@@ -90,23 +134,29 @@ public:
 		return output;
 	}
 
-	float Pop()
+	void Jump(int nbInstructions)
 	{
-		float value = Peek();
+		_instructionPtr += 2;
+	}
+
+	value_t Pop()
+	{
+		value_t value = Peek();
 		_stack.pop();
 		return value;
 	}
 
-	float Peek()
+	value_t Peek()
 	{
-		float value = _stack.top();
+		value_t value = _stack.top();
 		return value;
 	}
 
-	void Push(float value)
+	void Push(value_t value)
 	{
 		_stack.push(value);
 	}
 
-	std::stack<float> _stack;
+	std::stack<value_t> _stack;
+	std::vector<BytecodeData>::const_iterator _instructionPtr;
 };

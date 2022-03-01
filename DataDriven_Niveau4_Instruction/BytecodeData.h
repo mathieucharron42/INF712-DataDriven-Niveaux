@@ -8,10 +8,15 @@ enum class BytecodeInstruction
 	Pop,
 	Peek,
 	Duplicate,
+	Equals,
+	Not,
+	Jump,
+	JumpIf,
 	Add,
 	Substract,
 	Multiply,
 	Divide,
+	Swap,
 };
 
 struct BytecodeData

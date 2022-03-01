@@ -16,7 +16,7 @@ public:
 	{
 		float finalPrice = 0;
 
-		std::optional<float> executionResult = VM().Execute(_taxData.ComputationFunction, price);
+		std::optional<float> executionResult = VM().Execute(_taxData.ComputationFunction, {price, false});
 		if (ensure(executionResult.has_value()))
 		{
 			finalPrice = executionResult.value();
