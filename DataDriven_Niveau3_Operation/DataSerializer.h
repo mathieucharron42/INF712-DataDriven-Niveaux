@@ -23,39 +23,33 @@ namespace
 	{
 		TypeLibrary typeLibrary = TypeLibraryFactory()
 			.Add<float>("float")
-			.Add<GlobalTaxData>("GlobalTaxData")
-			.Add<TaxData>("TaxData")
-			.Add<std::vector<TaxData>>("vector<TaxData>")
 			.Add<std::string>("string")
 			.Add<int>("int")
-			.Add<TaxApplicationMode>("TaxApplicationMode")
+			.BeginType<TaxApplicationMode>("TaxApplicationMode")
+				.RegisterValue(TaxApplicationMode::Additive, "Additive")
+				.RegisterValue(TaxApplicationMode::Multiplicative, "Multiplicative")
+			.EndType<TaxApplicationMode>()
+			.BeginType<TaxData>("TaxData")
+				.RegisterMember(&TaxData::Id, "Id")
+				.RegisterMember(&TaxData::Value, "Value")
+				.RegisterMember(&TaxData::ApplicationOrder, "ApplicationOrder")
+				.RegisterMember(&TaxData::ApplicationMode, "ApplicationMode")
+			.EndType<TaxData>()
+			.Add<std::vector<TaxData>>("std::vector<TaxData>")
+			.BeginType<GlobalTaxData>("GlobalTaxData")
+				.RegisterMember(&GlobalTaxData::Taxes, "Taxes")
+			.EndType<GlobalTaxData>()
 		.Build();
 
-		TypeDescriptor globalTaxDataDescriptor = TypeDescriptorFactory<GlobalTaxData>(typeLibrary)
-			.RegisterMember(&GlobalTaxData::Taxes, "Taxes")
-		.Build();
-
-		TypeDescriptor taxDataDescriptor = TypeDescriptorFactory<TaxData>(typeLibrary)
-			.RegisterMember(&TaxData::Id, "Id")
-			.RegisterMember(&TaxData::Value, "Value")
-			.RegisterMember(&TaxData::ApplicationOrder, "ApplicationOrder")
-			.RegisterMember(&TaxData::ApplicationMode, "ApplicationMode")
-		.Build();
-
-		TypeDescriptor taxApplicationModeDescriptor = TypeDescriptorFactory<TaxApplicationMode>(typeLibrary)
-			.RegisterValue(TaxApplicationMode::Additive, "Additive")
-			.RegisterValue(TaxApplicationMode::Multiplicative, "Multiplicative")
-		.Build();
-
-		Serializer serializer = SerializerFactory(typeLibrary)
-			.LearnType<TaxData, ObjectSerializationStrategy<TaxData>>(taxDataDescriptor)
-			.LearnType<GlobalTaxData, ObjectSerializationStrategy<GlobalTaxData>>(globalTaxDataDescriptor)
-			.LearnType<std::vector<TaxData>, VectorSerializationStrategy<std::vector<TaxData>>>()
-			.LearnType<float, FloatSerializationStrategy>()
-			.LearnType<std::string, StringSerializationStrategy>()
-			.LearnType<int, Int32SerializationStrategy>()
-			.LearnType<TaxApplicationMode, EnumSerializationStrategy<TaxApplicationMode>>(taxApplicationModeDescriptor)
-			.SetFormat(SerializationFormat::Short)
+		Serialization::Serializer serializer = Serialization::SerializerFactory(typeLibrary)
+			.LearnType<float, Serialization::FloatSerializationStrategy>()
+			.LearnType<std::string, Serialization::StringSerializationStrategy>()
+			.LearnType<int, Serialization::Int32SerializationStrategy>()
+			.LearnType<TaxApplicationMode, Serialization::EnumSerializationStrategy<TaxApplicationMode>>()
+			.LearnType<TaxData, Serialization::ObjectSerializationStrategy<TaxData>>()
+			.LearnType<std::vector<TaxData>, Serialization::VectorSerializationStrategy<std::vector<TaxData>>>()
+			.LearnType<GlobalTaxData, Serialization::ObjectSerializationStrategy<GlobalTaxData>>()
+			.SetFormat(Serialization::SerializationFormat::Short)
 		.Build();
 
 		return serializer;
